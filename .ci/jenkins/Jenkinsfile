@@ -11,8 +11,8 @@ pipeline {
         label 'ubuntu'
     }
     tools {
-        maven 'kie-maven-3.6.3'
-        jdk 'kie-jdk11'
+        maven 'maven_3.8.6'
+        jdk 'jdk_11_latest'
     }
     options {
         timestamps()
@@ -115,7 +115,7 @@ void checkoutRepo(String repo, String dirName=repo) {
 
 MavenCommand getMavenCommand(String directory) {
     mvnCmd = new MavenCommand(this, ['-fae'])
-                .withSettingsXmlId('kogito_release_settings')
+                .withSettingsXmlId('kie-release-settings')
                 .withSnapshotsDisabledInSettings()
                 .withProperty('java.net.preferIPv4Stack', true)
                 .inDirectory(directory)
