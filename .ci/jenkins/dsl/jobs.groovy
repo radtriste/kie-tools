@@ -32,7 +32,9 @@ Map getMultijobPRConfig() {
 }
 
 // PR checks
-setupMultijobPrDefaultChecks()
+// Deactivated due to ghprb not available on Apache Jenkins
+// TODO create PR job with branch source plugin
+// setupMultijobPrDefaultChecks()
 
 /////////////////////////////////////////////////////////////////
 // Methods
