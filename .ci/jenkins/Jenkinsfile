@@ -8,11 +8,10 @@ changeTarget = env.ghprbTargetBranch ?: CHANGE_TARGET
 
 pipeline {
     agent {
-        label 'ubuntu'
-    }
-    tools {
-        maven 'maven_3.8.6'
-        jdk 'jdk_11_latest'
+        docker { 
+            image env.AGENT_DOCKER_BUILDER_IMAGE
+            args env.AGENT_DOCKER_BUILDER_ARGS
+        }
     }
     options {
         timestamps()
