@@ -6,9 +6,9 @@
 // to run sonar with each pull request, see: .ci/jenkins/Jenkinsfile
 //
 // For more details see:
-//  - https://github.com/kiegroup/kogito-pipelines/blob/main/docs/jenkins.md
+//  - https://github.com/apache/incubator-kie-kogito-pipelines/blob/main/docs/jenkins.md
 // Or the same file in other repositories like:
-//  - https://github.com/kiegroup/kogito-runtimes/tree/main/.ci/jenkins/dsl
+//  - https://github.com/apache/incubator-kie-kogito-runtimes/tree/main/.ci/jenkins/dsl
 /////////////////////////////////////////////////////////////////
 
 import org.kie.jenkins.jobdsl.KogitoJobTemplate

@@ -26,7 +26,7 @@ jobs:
       - name: "Checkout kogito-apps"
         uses: actions/checkout@v3
         with:
-          repository: kiegroup/kogito-apps
+          repository: apache/incubator-kie-kogito-apps
           ref: ${{ github.event.inputs.kogito_runtime_version }}
 
       - name: "Set up Maven"
