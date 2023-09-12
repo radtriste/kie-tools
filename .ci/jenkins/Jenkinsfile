@@ -26,14 +26,14 @@ pipeline {
                 script {
                     mailer.buildLogScriptPR()
 
-                    checkoutRepo('kie-tools')
+                    checkoutRepo('incubator-kie-kie-tools')
                 }
             }
         }
         stage('Build KIE Tools - Stunner Editors') {
             steps {
                 script {
-                    mvnCmd = getMavenCommand('kie-tools/packages/stunner-editors')
+                    mvnCmd = getMavenCommand('incubator-kie-kie-tools/packages/stunner-editors')
                     if (isNormalPRCheck() && isSonarCloudEnabled()) {
                         mvnCmd.withProfiles(['run-code-coverage'])
                     }
@@ -57,7 +57,7 @@ pipeline {
             steps {
                 script {
                     if (isSonarCloudEnabled()) {
-                        getMavenCommand('kie-tools/packages/stunner-editors')
+                        getMavenCommand('incubator-kie-kie-tools/packages/stunner-editors')
                                 .withOptions(['-Drevision=0.0.0', '-e', '-nsu', "-pl '!kie-wb-common-dmn/kie-wb-common-dmn-webapp-kogito-runtime,!lienzo-webapp'"])
                                 .withProperty('sonar.projectKey', 'org.kie.kogito:kogito-tooling')
                                 .withProperty('sonar.organization', 'kiegroup')
@@ -108,7 +108,7 @@ pipeline {
 
 void checkoutRepo(String repo, String dirName=repo) {
     dir(dirName) {
-        checkout(githubscm.resolveRepository('kie-tools', changeAuthor, changeBranch, false))
+        checkout(githubscm.resolveRepository('incubator-kie-kie-tools', changeAuthor, changeBranch, false))
     }
 }
 
